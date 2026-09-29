@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            💥
+        </div>
+
+        <div>
+
+            <h1>
+                ComicCraft
+            </h1>
+
+            <span>
+                AI Comic Story Creator
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-badge">
+
+        🤖 Powered by Gemini
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+
+            ✨ CREATE • IMAGINE • STORY
+
+        </div>
+
+
+        <h2>
+
+            Turn your ideas into
+
+            <span>
+                AI Comics.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Create original comic stories and
+            visual panels using Generative AI.
+
+            Enter your idea and let ComicCraft
+            bring your story to life.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN CREATOR
+===================================================== -->
+
+<main>
+
+<section class="creator-section">
+
+
+<div class="creator-card">
+
+
+    <div class="section-heading">
+
+        <div class="heading-icon">
+            ✍️
+        </div>
+
+        <div>
+
+            <h3>
+                Create Your Comic
+            </h3>
+
+            <p>
+                Describe your imagination
+                and customize your comic.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FORM
+    ================================================== -->
+
+    <form id="comicForm">
+
+
+        <!-- IDEA -->
+
+        <div class="form-group">
+
+            <label for="idea">
+
+                Comic Idea
+
+                <span>
+                    *
+                </span>
+
+            </label>
+
+
+            <textarea
+                id="idea"
+                rows="5"
+                placeholder="Example: A young inventor discovers a robot that can travel through time..."
+                required
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- OPTIONS -->
+
+        <div class="form-grid">
+
+
+            <!-- GENRE -->
+
+            <div class="form-group">
+
+                <label for="genre">
+                    Genre
+                </label>
+
+                <select id="genre">
+
+                    <option>
+                        Adventure
+                    </option>
+
+                    <option>
+                        Science Fiction
+                    </option>
+
+                    <option>
+                        Fantasy
+                    </option>
+
+                    <option>
+                        Superhero
+                    </option>
+
+                    <option>
+                        Mystery
+                    </option>
+
+                    <option>
+                        Comedy
+                    </option>
+
+                    <option>
+                        Educational
+                    </option>
+
+                    <option>
+                        Horror
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- PANELS -->
+
+            <div class="form-group">
+
+                <label for="panelCount">
+
+                    Number of Panels
+
+                </label>
+
+
+                <select id="panelCount">
+
+                    <option value="3">
+                        3 Panels
+                    </option>
+
+                    <option
+                        value="4"
+                        selected
+                    >
+                        4 Panels
+                    </option>
+
+                    <option value="5">
+                        5 Panels
+                    </option>
+
+                    <option value="6">
+                        6 Panels
+                    </option>
+
+                    <option value="8">
+                        8 Panels
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- ART STYLE -->
+
+            <div class="form-group">
+
+                <label for="artStyle">
+                    Art Style
+                </label>
+
+
+                <select id="artStyle">
+
+                    <option>
+                        Modern Comic Book
+                    </option>
+
+                    <option>
+                        Manga
+                    </option>
+
+                    <option>
+                        Cartoon
+                    </option>
+
+                    <option>
+                        Anime
+                    </option>
+
+                    <option>
+                        Watercolor
+                    </option>
+
+                    <option>
+                        Cyberpunk
+                    </option>
+
+                    <option>
+                        Fantasy Illustration
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TONE -->
+
+            <div class="form-group">
+
+                <label for="tone">
+                    Story Tone
+                </label>
+
+
+                <select id="tone">
+
+                    <option>
+                        Fun and Lighthearted
+                    </option>
+
+                    <option>
+                        Inspiring
+                    </option>
+
+                    <option>
+                        Emotional
+                    </option>
+
+                    <option>
+                        Suspenseful
+                    </option>
+
+                    <option>
+                        Action Packed
+                    </option>
+
+                    <option>
+                        Educational
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CHARACTERS -->
+
+        <div class="form-group">
+
+            <label for="characters">
+
+                Characters
+
+            </label>
+
+
+            <input
+                type="text"
+                id="characters"
+                placeholder="Example: Arjun, a young inventor; Robo, a friendly blue robot"
+            >
+
+
+            <small>
+
+                Leave empty if you want Gemini
+                to create the characters.
+
+            </small>
+
+        </div>
+
+
+
+        <!-- GENERATE BUTTON -->
+
+        <button
+            type="submit"
+            id="generateButton"
+            class="generate-button"
+        >
+
+            <span>
+                ⚡
+            </span>
+
+            <span>
+                Generate My Comic
+            </span>
+
+        </button>
+
+
+    </form>
+
+
+
+    <!-- =================================================
+         LOADING
+    ================================================== -->
+
+    <div
+        id="loading"
+        class="loading hidden"
+    >
+
+        <div class="loader"></div>
+
+
+        <h3>
+            ComicCraft is creating your comic...
+        </h3>
+
+
+        <p id="loadingText">
+            Writing your story with Gemini
+        </p>
+
+
+        <div class="progress-steps">
+
+
+            <div
+                class="step active"
+                id="step1"
+            >
+
+                <span>
+                    1
+                </span>
+
+                Story
+
+            </div>
+
+
+            <div
+                class="step"
+                id="step2"
+            >
+
+                <span>
+                    2
+                </span>
+
+                Scenes
+
+            </div>
+
+
+            <div
+                class="step"
+                id="step3"
+            >
+
+                <span>
+                    3
+                </span>
+
+                Artwork
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ERROR -->
+
+    <div
+        id="errorBox"
+        class="error-box hidden"
+    ></div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULT SECTION
+===================================================== -->
+
+<section
+    id="resultSection"
+    class="result-section hidden"
+>
+
+
+    <div class="result-header">
+
+
+        <div>
+
+            <div class="result-label">
+
+                YOUR AI GENERATED COMIC
+
+            </div>
+
+
+            <h2 id="comicTitle">
+                Your Comic
+            </h2>
+
+
+            <p id="storySummary"></p>
+
+        </div>
+
+
+        <button
+            id="newComicButton"
+            class="secondary-button"
+        >
+
+            + Create New
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- CHARACTERS -->
+
+    <div
+        id="charactersContainer"
+        class="characters-container"
+    ></div>
+
+
+
+    <!-- PANELS -->
+
+    <div
+        id="comicPanels"
+        class="comic-panels"
+    ></div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        ComicCraft AI • Generative AI Project Prototype
+    </p>
+
+    <p>
+        Python + Flask + Google Gemini
+    </p>
+
+</footer>
+
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+
+</body>
+
+</html>
